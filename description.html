@@ -68,8 +68,9 @@
             </div>
         </section>
 
-        <section class="your_Review">
-            <form>
+        <div class="div_review_comments">
+            <section class="your_Review">
+
                 <h2>your Review</h2>
                 <div class="div_stars">
                     <p>*Notez ce film :
@@ -91,8 +92,22 @@
                         <button class="btn_seConne btn_submit">Submit</button>
                     </a>
                 </div>
-            </form>
-        </section>
+            </section>
+            <div class="section_comment">
+                <h3>Comments on the movie</h3>
+                <div id="commentsContainer">
+                    <div class="comment">
+                        <img src="images/poto01_comments.jpg" alt="anonyme">
+                        <h4> C 'est un trés bonne film</h4>
+                    </div>
+                    <div class="comment">
+                        <img src="images/poto02_comments.jpg" alt="anonyme">
+                        <h4> J 'aime pas ce film</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="new_movies">
             <h1>New Movies</h1>
         </div>
@@ -111,8 +126,7 @@
                 onclick="scrollRight()" />
         </div>
 
-        <!-- <button id="scroll-left">Left</button>
-          <button id="scroll-right">Right</button> -->
+
 
     </main>
 

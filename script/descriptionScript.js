@@ -1,22 +1,31 @@
 
+let comments=JSON.parse(localStorage.getItem("comments")) || [];
 
-// let cards = document.querySelectorAll(".card");
+document.addEventListener("DOMContentLoaded",function(){
 
-// const inputUtilsateur = document.getElementById("inputUser");
+    comments.forEach(comment=>{
+      const commentDiv = document.createElement("div");
+      commentDiv.classList.add("comment");
 
-// inputUtilsateur.addEventListener('input',function(){
-//     const inputUser = inputUtilsateur.value.toLowerCase();
     
-//     cards.forEach(function(card) {
-//         let title = card.querySelector("h2").innerText.toLowerCase();
-        
-//         if (title.includes(inputUser)) {
-//             card.style.display = ""; 
-//         } else {
-//             card.style.display = "none";
-//         }
-//     });
-// });
+      commentDiv.innerHTML = `
+          <div>
+             <img src="images/photoAnonym.jpg" alt="anonyme">
+              <h4>${comment}</h4>
+          </div>
+      `;
+
+      
+      commentsContainer.appendChild(commentDiv);    
+    })
+});
+
+
+
+if(localStorage.dark==1){
+  document.body.classList.add('dark');
+}
+
 
 let stars=document.querySelectorAll(".stars i");
 
@@ -67,6 +76,43 @@ img_coeur.addEventListener("click",(e)=>{
     img_coeur.src="images/icon_coeur_vide.svg";   
   }
 });
+
+
+const btn_submit = document.querySelector(".btn_submit");
+const commentInput = document.querySelector(".div_textArea textarea");
+const commentsContainer = document.getElementById("commentsContainer");
+
+btn_submit.addEventListener("click", function() {
+  const commentText = commentInput.value;
+
+  if (commentText.trim() !== "") {
+    
+      const commentDiv = document.createElement("div");
+      commentDiv.classList.add("comment");
+
+    
+      commentDiv.innerHTML = `
+          <div>
+             <img src="images/photoAnonym.jpg" alt="anonyme">
+              <h4>${commentText}</h4>
+          </div>
+      `;
+
+      
+      commentsContainer.appendChild(commentDiv);
+      alert("votre commentaire a été ajouter avec succée");
+      comments.push(commentText);
+      localStorage.setItem("comments",JSON.stringify(comments));
+
+      commentInput.value = "";
+  } else {
+      alert("Le commentaire ne peut pas être vide.");
+  }
+});
+
+//localStorage.clear();
+
+
  
 
 
